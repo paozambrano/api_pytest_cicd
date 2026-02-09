@@ -21,6 +21,6 @@ jobs:
 
     - name: Run Tests
       env:
-        GITHUB_TOKEN: ${{secrest.GITHUB_TOKEN}}
+        SGITHUB_TOKEN: ${{secrest.GITHUB_TOKEN}}
       run: |
         pytes --html=report.html

@@ -1,5 +1,5 @@
 import requests
-
+import time
 
 def test_get_my_user_info(base_url, github_headers):
     response = requests.get(f"{base_url}/user", headers=github_headers) 
@@ -12,7 +12,12 @@ def test_get_my_user_info(base_url, github_headers):
 
 
 def test_list_repositories(base_url, github_headers):
+
+    time.sleep(5)
     response = requests.get(f"{base_url}/user/repos", headers=github_headers)
+
+    if response.status_code == 429:
+        print(f"\nLímite alcanzado. Reintenta en: {response.headers.get('Retry-After')} segundos")
 
     assert response.status_code == 200
 

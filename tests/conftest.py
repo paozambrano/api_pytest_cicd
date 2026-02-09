@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 load_dotenv()
 @pytest.fixture
 def github_headers():
-    token = os.getenv("GITHUB_TOKEN")
+    token = os.getenv("SGITHUB_TOKEN")
     return{
-        "Authorization": f"Bearer{token}",
+        "Authorization": f"Bearer {token}",
         "Accept": "application/vnd.github+json"
     }
 
